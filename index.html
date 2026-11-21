@@ -84,7 +84,7 @@ function drawFlat(){
   const reverse=[...chain].reverse();
   const lengths=[reverse[0][1].ht];
   for(let i=1;i<reverse.length;i++){
-   lengths.push((reverse[i-1][1].j+reverse[i-1][1].di-reverse[i][1].j)*step);
+   lengths.push(reverse[i-1][1].di*step);
    lengths.push(reverse[i][1].ht-reverse[i-1][1].ht);
   }
   lengths.push(reverse[reverse.length-1][1].di*step);
@@ -222,7 +222,7 @@ faces.push({p:t,fill:chosen?'#8ed6df':'#a8dce1'});const q=2;
 let hiddenHeight=0;
 for(const [,n] of blocks){if(n===obj||n.ht<=0)continue;
  if(Math.abs(n.x-obj.x)<EPS&&Math.abs(n.wi-obj.wi)<EPS&&
-    Math.abs(n.j+n.di-obj.j)<EPS&&n.ht<ht-EPS){hiddenHeight=Math.max(hiddenHeight,n.ht)}
+    Math.abs(obj.j+obj.di-n.j)<EPS&&n.ht<ht-EPS){hiddenHeight=Math.max(hiddenHeight,n.ht)}
 }
 const p=[popupPoint(b[q][0],hiddenHeight,b[q][2]),popupPoint(b[(q+1)%4][0],hiddenHeight,b[(q+1)%4][2]),t[(q+1)%4],t[q]];
 if(hiddenHeight<ht-EPS)faces.push({p,fill:chosen?'#79b8ca':'#8abfcd'})}

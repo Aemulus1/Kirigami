@@ -1,4 +1,4 @@
-<!doctype html><html lang="nl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"><title>Kirigami Atelier — Stap 3b · correcte uitslag</title><style>*{box-sizing:border-box}body{margin:0;background:#151a23;color:#f2f3f5;font:15px system-ui,sans-serif}header{display:flex;align-items:center;justify-content:space-between;padding:13px 18px;background:#222a36;gap:10px;flex-wrap:wrap}h1{font-size:18px;margin:0}small{color:#b8c1cf}.tools{display:flex;gap:9px;align-items:center;flex-wrap:wrap}button{background:#354257;border:1px solid #59677a;color:white;border-radius:9px;padding:10px 13px;font:inherit;cursor:pointer}button:active{background:#5278a6}button.active{background:#256b82;border-color:#6bd6e4}main{position:relative;height:calc(100dvh - 72px);min-height:390px}canvas{display:block;width:100%;height:100%;touch-action:none}.hint{position:absolute;left:15px;bottom:14px;max-width:370px;background:#151a23c9;padding:12px;border-radius:10px;line-height:1.5;pointer-events:none}.tag{color:#8ed5ff;font-weight:700}@media(max-width:620px){main{height:calc(100dvh - 118px)}header{padding:10px}.hint{font-size:12px}}</style></head><body><header><div><h1>✂ Kirigami Atelier <small>— stap 3f · intelligente snijranden</small></h1><small>A4 • ontwerpstand 90° • proefmodel</small></div><div class="tools"><button id="mode">Modus: selecteren</button><button id="side">Links ↔ Rechts</button><button id="wminus">Breedte −</button><button id="wplus">Breedte +</button><button id="dminus">Diepte −</button><button id="dplus">Diepte +</button><button id="unfold">Blad openvouwen</button><button id="clear">Wis vormen</button><button id="front">Vooraanzicht</button><button id="iso">3D-aanzicht</button><button id="reset">Herstel beeld</button><button id="grid">Raster: aan</button></div></header><main><canvas id="scene"></canvas><div class="hint"><span class="tag">Ontwerpstand — 90°</span><br>Tik op een vrij gedeelte van een vloervakje en sleep omhoog om een extra verhoging te maken. Ook naast een halve of kwartbrede vorm kan een nieuwe vorm ontstaan. Tik een bestaande verhoging aan om haar te wijzigen. Gebruik Breedte − om de breedte telkens te halveren (tot ¼ vakje), en Breedte + om ze te verdubbelen. Met Links ↔ Rechts verplaats je een versmald vakje binnen zijn oorspronkelijke rastervakje. Diepte ± blijft onafhankelijk werken. Met <b>Modus</b> schakel je tussen selecteren en draaien; twee vingers zoomen. <br><small>De vormen hebben nu alleen een boven- en voorvlak; de zijkanten blijven open. Met Blad openvouwen zie je snijlijnen over hoogte + diepte, met een extra dakvouw op hoogte − diepte. Gedeelde snijranden verdwijnen bij aangrenzende vormen met gelijke diepte. De fysieke vouwbaarheid is nog niet volledig gevalideerd.</small></div></main><script>
+<!doctype html><html lang="nl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"><title>Kirigami Atelier — Stap 3b · correcte uitslag</title><style>*{box-sizing:border-box}body{margin:0;background:#151a23;color:#f2f3f5;font:15px system-ui,sans-serif}header{display:flex;align-items:center;justify-content:space-between;padding:13px 18px;background:#222a36;gap:10px;flex-wrap:wrap}h1{font-size:18px;margin:0}small{color:#b8c1cf}.tools{display:flex;gap:9px;align-items:center;flex-wrap:wrap}button{background:#354257;border:1px solid #59677a;color:white;border-radius:9px;padding:10px 13px;font:inherit;cursor:pointer}button:active{background:#5278a6}button.active{background:#256b82;border-color:#6bd6e4}main{position:relative;height:calc(100dvh - 72px);min-height:390px}canvas{display:block;width:100%;height:100%;touch-action:none}.hint{position:absolute;left:15px;bottom:14px;max-width:370px;background:#151a23c9;padding:12px;border-radius:10px;line-height:1.5;pointer-events:none}.tag{color:#8ed5ff;font-weight:700}@media(max-width:620px){main{height:calc(100dvh - 118px)}header{padding:10px}.hint{font-size:12px}}</style></head><body><header><div><h1>✂ Kirigami Atelier <small>— stap 3h · aansluitende dakvouwen</small></h1><small>A4 • ontwerpstand 90° • proefmodel</small></div><div class="tools"><button id="mode">Modus: selecteren</button><button id="side">Links ↔ Rechts</button><button id="wminus">Breedte −</button><button id="wplus">Breedte +</button><button id="dminus">Diepte −</button><button id="dplus">Diepte +</button><button id="unfold">Blad openvouwen</button><button id="clear">Wis vormen</button><button id="front">Vooraanzicht</button><button id="iso">3D-aanzicht</button><button id="reset">Herstel beeld</button><button id="grid">Raster: aan</button></div></header><main><canvas id="scene"></canvas><div class="hint"><span class="tag">Ontwerpstand — 90°</span><br>Tik op een vrij gedeelte van een vloervakje en sleep omhoog om een extra verhoging te maken. Ook naast een halve of kwartbrede vorm kan een nieuwe vorm ontstaan. Tik een bestaande verhoging aan om haar te wijzigen. Gebruik Breedte − om de breedte telkens te halveren (tot ¼ vakje), en Breedte + om ze te verdubbelen. Met Links ↔ Rechts verplaats je een versmald vakje binnen zijn oorspronkelijke rastervakje. Diepte ± blijft onafhankelijk werken. Met <b>Modus</b> schakel je tussen selecteren en draaien; twee vingers zoomen. <br><small>De vormen hebben nu alleen een boven- en voorvlak; de zijkanten blijven open. Met Blad openvouwen zie je snijlijnen over hoogte + diepte, met een extra dakvouw op hoogte − diepte. Gedeelde snijranden verdwijnen bij aangrenzende vormen met gelijke diepte; bij gelijke hoogte worden ook samenvallende bovenvlakken verbonden. Een bovenvouw die aansluit op een hogere buur met dezelfde diepte wordt niet dubbel aangeduid. De fysieke vouwbaarheid is nog niet volledig gevalideerd.</small></div></main><script>
 (()=>{'use strict';
 const canvas=document.getElementById('scene'),ctx=canvas.getContext('2d');
 let w=0,h=0,dpr=1,az=-.55,el=.48,zoom=1,grid=true,mode='select';
@@ -61,31 +61,52 @@ function drawFlat(){
    const edgeX=edge===0?x0:x1;
    let segments=[[lo,hi]];
    for(const [otherId,n] of blocks){
-    if(otherId===k||n.ht<=0||Math.abs(n.di-o.di)>EPS)continue;
+    if(otherId===k||n.ht<=0)continue;
     const nx0=-W/2+n.x*step,nx1=nx0+n.wi*step;
     const touching=edge===0?Math.abs(nx1-edgeX)<EPS:Math.abs(nx0-edgeX)<EPS;
     if(!touching)continue;
     const nDepth=n.di*step;
     const nRoof=top+(H-n.ht+nDepth)*scale;
     const nBottom=top+(H+nDepth)*scale;
-    // Het gedeelde papier blijft aaneen vanaf de laagste dakvouw.
-    const removeStart=Math.max(yRoof,nRoof,top);
-    const removeEnd=Math.min(yBottom,nBottom,top+2*H*scale);
-    if(removeEnd<=removeStart)continue;
-    const next=[];
-    for(const [a,b] of segments){
-     if(removeStart>=b||removeEnd<=a){next.push([a,b]);continue}
-     if(a<removeStart)next.push([a,Math.min(b,removeStart)]);
-     if(b>removeEnd)next.push([Math.max(a,removeEnd),b]);
+    // Twee onafhankelijke verbindingstypes, zonder de eerdere correctie te wijzigen:
+    // (1) gelijke diepte: gemeenschappelijke voorvlakken blijven aaneen.
+    // (2) gelijke hoogte: gemeenschappelijke bovenvlakken blijven aaneen,
+    //     van de bovenste vouw tot de dakvouw van de minst diepe vorm.
+    const intervals=[];
+    if(Math.abs(n.di-o.di)<EPS){
+     intervals.push([Math.max(yRoof,nRoof,top),Math.min(yBottom,nBottom,top+2*H*scale)]);
     }
-    segments=next;
+    if(Math.abs(n.ht-o.ht)<EPS){
+     const nTop=top+(H-n.ht)*scale;
+     intervals.push([Math.max(yTop,nTop,top),Math.min(yRoof,nRoof,top+2*H*scale)]);
+    }
+    for(const [removeStart,removeEnd] of intervals){
+     if(removeEnd<=removeStart)continue;
+     const next=[];
+     for(const [a,b] of segments){
+      if(removeStart>=b||removeEnd<=a){next.push([a,b]);continue}
+      if(a<removeStart)next.push([a,Math.min(b,removeStart)]);
+      if(b>removeEnd)next.push([Math.max(a,removeEnd),b]);
+     }
+     segments=next;
+    }
    }
    const xx=px(edgeX);
    for(const [a,b] of segments){if(b-a<.01)continue;ctx.beginPath();ctx.moveTo(xx,a);ctx.lineTo(xx,b);ctx.stroke()}
   }
   ctx.strokeStyle='#237db2';ctx.lineWidth=1.7;ctx.setLineDash([5,3]);
+  // Een bovenvouw die in de doorlopende aansluiting met een hogere
+  // buur valt, is geen afzonderlijke vouwrand. De andere dak- en
+  // bodemvouwen blijven behouden.
+  const hasHigherNeighbor=[...blocks].some(([otherId,n])=>{
+   if(otherId===k||n.ht<=o.ht+EPS)return false;
+   const nx0=-W/2+n.x*step,nx1=nx0+n.wi*step;
+   const adjacent=Math.abs(nx1-x0)<EPS||Math.abs(nx0-x1)<EPS;
+   return adjacent && Math.abs(n.di-o.di)<EPS;
+  });
   for(const yy of [yTop,yRoof,yBottom]){
    if(yy<top||yy>top+2*H*scale)continue;
+   if(Math.abs(yy-yTop)<.01 && hasHigherNeighbor)continue;
    ctx.beginPath();ctx.moveTo(xx0,yy);ctx.lineTo(xx1,yy);ctx.stroke();
   }
   ctx.setLineDash([]);

@@ -1,4 +1,4 @@
-<!doctype html><html lang="nl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"><title>Kirigami Atelier — Stap 3j · correcte 3D-diepte</title><style>*{box-sizing:border-box}body{margin:0;background:#151a23;color:#f2f3f5;font:15px system-ui,sans-serif}header{display:flex;align-items:center;justify-content:space-between;padding:13px 18px;background:#222a36;gap:10px;flex-wrap:wrap}h1{font-size:18px;margin:0}small{color:#b8c1cf}.tools{display:flex;gap:9px;align-items:center;flex-wrap:wrap}button{background:#354257;border:1px solid #59677a;color:white;border-radius:9px;padding:10px 13px;font:inherit;cursor:pointer}button:active{background:#5278a6}button.active{background:#256b82;border-color:#6bd6e4}.foldbar{display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding:9px 18px;background:#1b2532;border-top:1px solid #36445a}.foldbar input{flex:1;min-width:160px;accent-color:#70cadf;touch-action:auto}.foldbar output{font-weight:700;min-width:45px;color:#a9e5f1}.foldbar button{padding:6px 10px}main{position:relative;height:calc(100dvh - 132px);min-height:390px}canvas{display:block;width:100%;height:100%;touch-action:none}.hint{position:absolute;left:15px;bottom:14px;max-width:370px;background:#151a23c9;padding:12px;border-radius:10px;line-height:1.5;pointer-events:none}.tag{color:#8ed5ff;font-weight:700}@media(max-width:620px){main{height:calc(100dvh - 178px)}header{padding:10px}.hint{font-size:12px}}</style></head><body><header><div><h1>✂ Kirigami Atelier <small>— stap 3q · gedeelde papieroppervlakken</small></h1><small>A4 • ontwerpstand 90° • proefmodel</small></div><div class="tools"><button id="mode">Modus: selecteren</button><button id="side">Links ↔ Rechts</button><button id="wminus">Breedte −</button><button id="wplus">Breedte +</button><button id="dminus">Diepte −</button><button id="dplus">Diepte +</button><button id="unfold">Blad openvouwen</button><button id="clear">Wis vormen</button><button id="front">Vooraanzicht</button><button id="iso">3D-aanzicht</button><button id="reset">Herstel beeld</button><button id="grid">Raster: aan</button></div></header><div class="foldbar"><label for="foldAngle"><b>Kaart openvouwen</b></label><span>0°</span><input id="foldAngle" type="range" min="0" max="180" step="1" value="90" aria-label="Openingshoek kaart"><span>180°</span><output id="foldValue">90°</output><button id="fold90">90°</button></div><main><canvas id="scene"></canvas><div class="hint"><span class="tag">Ontwerpstand — <span id="angleHint">90°</span></span><br>Tik op een vrij gedeelte van een vloervakje en sleep omhoog om een extra verhoging te maken. Ook naast een halve of kwartbrede vorm kan een nieuwe vorm ontstaan. Tik een bestaande verhoging aan om haar te wijzigen. Gebruik Breedte − om de breedte telkens te halveren (tot ¼ vakje), en Breedte + om ze te verdubbelen. Met Links ↔ Rechts verplaats je een versmald vakje binnen zijn oorspronkelijke rastervakje. Diepte ± blijft onafhankelijk werken. Met <b>Modus</b> schakel je tussen selecteren en draaien; twee vingers zoomen. <br><small>De vormen hebben nu alleen een boven- en voorvlak; de zijkanten blijven open. Met Blad openvouwen zie je snijlijnen over hoogte + diepte, met een extra dakvouw op hoogte − diepte. Gedeelde snijranden verdwijnen bij aangrenzende vormen met gelijke diepte; bij gelijke hoogte worden ook samenvallende bovenvlakken verbonden. De ontbrekende korte bovenvouw bij een uitstekende lagere vorm is hersteld. De schuiver toont een gekoppelde scharnierbeweging van de papierdelen. De fysieke vouwbaarheid van complexe combinaties is nog niet volledig gevalideerd. Je kunt vormen ook na gebruik van de vouwschuiver selecteren; voor nauwkeurig ontwerpen is 90° het handigst.</small></div></main><script>
+<!doctype html><html lang="nl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"><title>Kirigami Atelier — Stap 3j · correcte 3D-diepte</title><style>*{box-sizing:border-box}body{margin:0;background:#151a23;color:#f2f3f5;font:15px system-ui,sans-serif}header{display:flex;align-items:center;justify-content:space-between;padding:13px 18px;background:#222a36;gap:10px;flex-wrap:wrap}h1{font-size:18px;margin:0}small{color:#b8c1cf}.tools{display:flex;gap:9px;align-items:center;flex-wrap:wrap}button{background:#354257;border:1px solid #59677a;color:white;border-radius:9px;padding:10px 13px;font:inherit;cursor:pointer}button:active{background:#5278a6}button.active{background:#256b82;border-color:#6bd6e4}.foldbar{display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding:9px 18px;background:#1b2532;border-top:1px solid #36445a}.foldbar input{flex:1;min-width:160px;accent-color:#70cadf;touch-action:auto}.foldbar output{font-weight:700;min-width:45px;color:#a9e5f1}.foldbar button{padding:6px 10px}main{position:relative;height:calc(100dvh - 132px);min-height:390px}canvas{display:block;width:100%;height:100%;touch-action:none}.hint{position:absolute;left:15px;bottom:14px;max-width:370px;background:#151a23c9;padding:12px;border-radius:10px;line-height:1.5;pointer-events:none}.tag{color:#8ed5ff;font-weight:700}@media(max-width:620px){main{height:calc(100dvh - 178px)}header{padding:10px}.hint{font-size:12px}}</style></head><body><header><div><h1>✂ Kirigami Atelier <small>— stap 3r · gedeelde snijranden</small></h1><small>A4 • ontwerpstand 90° • proefmodel</small></div><div class="tools"><button id="mode">Modus: selecteren</button><button id="side">Links ↔ Rechts</button><button id="wminus">Breedte −</button><button id="wplus">Breedte +</button><button id="dminus">Diepte −</button><button id="dplus">Diepte +</button><button id="unfold">Blad openvouwen</button><button id="clear">Wis vormen</button><button id="front">Vooraanzicht</button><button id="iso">3D-aanzicht</button><button id="reset">Herstel beeld</button><button id="grid">Raster: aan</button></div></header><div class="foldbar"><label for="foldAngle"><b>Kaart openvouwen</b></label><span>0°</span><input id="foldAngle" type="range" min="0" max="180" step="1" value="90" aria-label="Openingshoek kaart"><span>180°</span><output id="foldValue">90°</output><button id="fold90">90°</button></div><main><canvas id="scene"></canvas><div class="hint"><span class="tag">Ontwerpstand — <span id="angleHint">90°</span></span><br>Tik op een vrij gedeelte van een vloervakje en sleep omhoog om een extra verhoging te maken. Ook naast een halve of kwartbrede vorm kan een nieuwe vorm ontstaan. Tik een bestaande verhoging aan om haar te wijzigen. Gebruik Breedte − om de breedte telkens te halveren (tot ¼ vakje), en Breedte + om ze te verdubbelen. Met Links ↔ Rechts verplaats je een versmald vakje binnen zijn oorspronkelijke rastervakje. Diepte ± blijft onafhankelijk werken. Met <b>Modus</b> schakel je tussen selecteren en draaien; twee vingers zoomen. <br><small>De vormen hebben nu alleen een boven- en voorvlak; de zijkanten blijven open. Met Blad openvouwen zie je snijlijnen over hoogte + diepte, met een extra dakvouw op hoogte − diepte. Gedeelde snijranden verdwijnen bij aangrenzende vormen met gelijke diepte; bij gelijke hoogte worden ook samenvallende bovenvlakken verbonden. De ontbrekende korte bovenvouw bij een uitstekende lagere vorm is hersteld. De schuiver toont een gekoppelde scharnierbeweging van de papierdelen. De fysieke vouwbaarheid van complexe combinaties is nog niet volledig gevalideerd. Je kunt vormen ook na gebruik van de vouwschuiver selecteren; voor nauwkeurig ontwerpen is 90° het handigst.</small></div></main><script>
 (()=>{'use strict';
 const canvas=document.getElementById('scene'),ctx=canvas.getContext('2d');
 let foldAngle=90;let w=0,h=0,dpr=1,az=-.55,el=.48,zoom=1,grid=true,mode='select';
@@ -157,46 +157,22 @@ function drawFlat(){
   const yBottom=top+(H+depth)*scale;
   const lo=Math.max(top,yTop),hi=Math.min(top+2*H*scale,yBottom);
   ctx.fillStyle='#6fc9d51e';ctx.fillRect(xx0,lo,xx1-xx0,Math.max(0,hi-lo));
-  // Teken uitsluitend de werkelijk benodigde snijsegmenten. Bij twee
-  // aangrenzende vormen met dezelfde diepte is hun gemeenschappelijke grens
-  // vanaf de dakvouw van de laagste vorm tot de onderste vouw geen snede.
+  // Snijranden worden voor ALLE stroken met dezelfde geometrische
+  // gedeelde-vlakkenregel bepaald. Geen afzonderlijke oude blokjeslogica.
   ctx.lineWidth=2;ctx.strokeStyle='#d64b49';ctx.setLineDash([]);
-  for(const edge of [0,1]){
-   const edgeX=edge===0?x0:x1;
-   let segments=[[lo,hi]];
-   for(const [otherId,n] of blocks){
-    if(otherId===k||n.ht<=0)continue;
-    const nx0=-W/2+n.x*step,nx1=nx0+n.wi*step;
-    const touching=edge===0?Math.abs(nx1-edgeX)<EPS:Math.abs(nx0-edgeX)<EPS;
-    if(!touching)continue;
-    const nDepth=n.di*step;
-    const nRoof=top+(H-n.ht+nDepth)*scale;
-    const nBottom=top+(H+nDepth)*scale;
-    // Twee onafhankelijke verbindingstypes, zonder de eerdere correctie te wijzigen:
-    // (1) gelijke diepte: gemeenschappelijke voorvlakken blijven aaneen.
-    // (2) gelijke hoogte: gemeenschappelijke bovenvlakken blijven aaneen,
-    //     van de bovenste vouw tot de dakvouw van de minst diepe vorm.
-    const intervals=[];
-    if(Math.abs(n.di-o.di)<EPS){
-     intervals.push([Math.max(yRoof,nRoof,top),Math.min(yBottom,nBottom,top+2*H*scale)]);
-    }
-    if(Math.abs(n.ht-o.ht)<EPS){
-     const nTop=top+(H-n.ht)*scale;
-     intervals.push([Math.max(yTop,nTop,top),Math.min(yRoof,nRoof,top+2*H*scale)]);
-    }
-    for(const [removeStart,removeEnd] of intervals){
-     if(removeEnd<=removeStart)continue;
-     const next=[];
+  const ownShape=allStripShapes.find(shape=>
+   Math.abs(shape.x0-x0)<EPS && Math.abs(shape.x1-x1)<EPS &&
+   shape.faces.some(f=>Math.abs(f.b-yBottom)<.01));
+  if(ownShape){
+   for(const edgeX of [x0,x1]){
+    for(const face of ownShape.faces){
+     const segments=subtractShared([[face.a,face.b]],face,edgeX,ownShape);
      for(const [a,b] of segments){
-      if(removeStart>=b||removeEnd<=a){next.push([a,b]);continue}
-      if(a<removeStart)next.push([a,Math.min(b,removeStart)]);
-      if(b>removeEnd)next.push([Math.max(a,removeEnd),b]);
+      if(b-a<.01)continue;
+      ctx.beginPath();ctx.moveTo(px(edgeX),a);ctx.lineTo(px(edgeX),b);ctx.stroke();
      }
-     segments=next;
     }
    }
-   const xx=px(edgeX);
-   for(const [a,b] of segments){if(b-a<.01)continue;ctx.beginPath();ctx.moveTo(xx,a);ctx.lineTo(xx,b);ctx.stroke()}
   }
   ctx.strokeStyle='#237db2';ctx.lineWidth=1.7;ctx.setLineDash([5,3]);
   // Een bovenvouw die in de doorlopende aansluiting met een hogere

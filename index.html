@@ -1,4 +1,4 @@
-<!doctype html><html lang="nl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"><title>Kirigami Atelier — Stap 3b · correcte uitslag</title><style>*{box-sizing:border-box}body{margin:0;background:#151a23;color:#f2f3f5;font:15px system-ui,sans-serif}header{display:flex;align-items:center;justify-content:space-between;padding:13px 18px;background:#222a36;gap:10px;flex-wrap:wrap}h1{font-size:18px;margin:0}small{color:#b8c1cf}.tools{display:flex;gap:9px;align-items:center;flex-wrap:wrap}button{background:#354257;border:1px solid #59677a;color:white;border-radius:9px;padding:10px 13px;font:inherit;cursor:pointer}button:active{background:#5278a6}button.active{background:#256b82;border-color:#6bd6e4}main{position:relative;height:calc(100dvh - 72px);min-height:390px}canvas{display:block;width:100%;height:100%;touch-action:none}.hint{position:absolute;left:15px;bottom:14px;max-width:370px;background:#151a23c9;padding:12px;border-radius:10px;line-height:1.5;pointer-events:none}.tag{color:#8ed5ff;font-weight:700}@media(max-width:620px){main{height:calc(100dvh - 118px)}header{padding:10px}.hint{font-size:12px}}</style></head><body><header><div><h1>✂ Kirigami Atelier <small>— stap 3b · gecorrigeerde uitslag</small></h1><small>A4 • ontwerpstand 90° • proefmodel</small></div><div class="tools"><button id="mode">Modus: selecteren</button><button id="wminus">Breedte −</button><button id="wplus">Breedte +</button><button id="dminus">Diepte −</button><button id="dplus">Diepte +</button><button id="unfold">Blad openvouwen</button><button id="clear">Wis vormen</button><button id="front">Vooraanzicht</button><button id="iso">3D-aanzicht</button><button id="reset">Herstel beeld</button><button id="grid">Raster: aan</button></div></header><main><canvas id="scene"></canvas><div class="hint"><span class="tag">Ontwerpstand — 90°</span><br>Tik op een vloervakje en sleep omhoog om een verhoging te maken. Tik een bestaande verhoging aan om haar te wijzigen. Gebruik Breedte − om de breedte telkens te halveren (tot ¼ vakje), en Breedte + om ze te verdubbelen. Diepte ± blijft onafhankelijk werken. Met <b>Modus</b> schakel je tussen selecteren en draaien; twee vingers zoomen. <br><small>De vormen hebben nu alleen een boven- en voorvlak; de zijkanten blijven open. Met Blad openvouwen zie je snijlijnen over hoogte + diepte, met een extra dakvouw op hoogte − diepte. De fysieke vouwbaarheid is nog niet gevalideerd.</small></div></main><script>
+<!doctype html><html lang="nl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"><title>Kirigami Atelier — Stap 3b · correcte uitslag</title><style>*{box-sizing:border-box}body{margin:0;background:#151a23;color:#f2f3f5;font:15px system-ui,sans-serif}header{display:flex;align-items:center;justify-content:space-between;padding:13px 18px;background:#222a36;gap:10px;flex-wrap:wrap}h1{font-size:18px;margin:0}small{color:#b8c1cf}.tools{display:flex;gap:9px;align-items:center;flex-wrap:wrap}button{background:#354257;border:1px solid #59677a;color:white;border-radius:9px;padding:10px 13px;font:inherit;cursor:pointer}button:active{background:#5278a6}button.active{background:#256b82;border-color:#6bd6e4}main{position:relative;height:calc(100dvh - 72px);min-height:390px}canvas{display:block;width:100%;height:100%;touch-action:none}.hint{position:absolute;left:15px;bottom:14px;max-width:370px;background:#151a23c9;padding:12px;border-radius:10px;line-height:1.5;pointer-events:none}.tag{color:#8ed5ff;font-weight:700}@media(max-width:620px){main{height:calc(100dvh - 118px)}header{padding:10px}.hint{font-size:12px}}</style></head><body><header><div><h1>✂ Kirigami Atelier <small>— stap 3c · links-rechts</small></h1><small>A4 • ontwerpstand 90° • proefmodel</small></div><div class="tools"><button id="mode">Modus: selecteren</button><button id="wminus">Breedte −</button><button id="wplus">Breedte +</button><button id="side">Links ↔ Rechts</button><button id="dminus">Diepte −</button><button id="dplus">Diepte +</button><button id="unfold">Blad openvouwen</button><button id="clear">Wis vormen</button><button id="front">Vooraanzicht</button><button id="iso">3D-aanzicht</button><button id="reset">Herstel beeld</button><button id="grid">Raster: aan</button></div></header><main><canvas id="scene"></canvas><div class="hint"><span class="tag">Ontwerpstand — 90°</span><br>Tik op een vloervakje en sleep omhoog om een verhoging te maken. Tik een bestaande verhoging aan om haar te wijzigen. Gebruik Breedte − om de breedte telkens te halveren (tot ¼ vakje), en Breedte + om ze te verdubbelen. Met Links ↔ Rechts verplaats je een versmald vakje binnen zijn oorspronkelijke rastervakje. Diepte ± blijft onafhankelijk werken. Met <b>Modus</b> schakel je tussen selecteren en draaien; twee vingers zoomen. <br><small>De vormen hebben nu alleen een boven- en voorvlak; de zijkanten blijven open. Met Blad openvouwen zie je snijlijnen over hoogte + diepte, met een extra dakvouw op hoogte − diepte. De fysieke vouwbaarheid is nog niet gevalideerd.</small></div></main><script>
 (()=>{'use strict';
 const canvas=document.getElementById('scene'),ctx=canvas.getContext('2d');
 let w=0,h=0,dpr=1,az=-.55,el=.48,zoom=1,grid=true,mode='select';
@@ -21,19 +21,39 @@ function pick(x,y){const candidates=[];for(const [k,obj] of blocks){const [i,j]=
 function overlap(a,b,c,d){return a<c+d-1e-7&&a+b>c+1e-7}
 function occupied(i,j,ignore=null){for(const [k,o] of blocks){if(k===ignore)continue;const [a,b]=k.split(',').map(Number);if(overlap(i,1,a,o.wi)&&overlap(j,1,b,o.di))return true}return false}
 function valid(i,j,wi,di,ignore){if(i<0||j<0||i+wi>cols+1e-7||j+di>rows+1e-7)return false;for(const [k,o] of blocks){if(k===ignore)continue;const [a,b]=k.split(',').map(Number);if(overlap(i,wi,a,o.wi)&&overlap(j,di,b,o.di))return false}return true}
+function moveBlock(oldKey,ni,nj,o){
+ const old=blocks.get(oldKey);if(!old)return;
+ if(oldKey!==key(ni,nj)){blocks.delete(oldKey);blocks.set(key(ni,nj),o)}
+ selected={i:ni,j:nj};
+}
+function toggleSide(){
+ if(!selected)return;
+ const i=selected.i,j=selected.j,k=key(i,j),o=blocks.get(k);if(!o||o.wi>=1-1e-7)return;
+ const origin=o.originX??Math.floor(i+1e-7);
+ const newSide=o.side==='right'?'left':'right';
+ const ni=origin+(newSide==='right'?1-o.wi:0);
+ if(valid(ni,j,o.wi,o.di,k)){moveBlock(k,ni,j,o);o.side=newSide}
+ draw();
+}
 function resizeSelected(axis,delta){
  if(!selected)return;
  const i=selected.i,j=selected.j,k=key(i,j),o=blocks.get(k);if(!o)return;
  const wi=axis==='w'?(delta<0?Math.max(.25,o.wi/2):Math.min(cols,o.wi*2)):o.wi;
  const di=axis==='d'?Math.max(1,o.di+delta):o.di;
  if(wi===o.wi&&di===o.di){draw();return}
- const inc=axis==='w'?Math.max(0,wi-o.wi):1;
- const positions=axis==='w'&&delta>0?[[i,j],[i-inc,j]]:
-                 axis==='d'&&delta>0?[[i,j],[i,j-1]]:[[i,j]];
+ let positions=[];
+ if(axis==='w'&&o.originX!==undefined&&wi<=1){
+  positions=[[o.originX+(o.side==='right'?1-wi:0),j]];
+ }else if(axis==='w'&&delta>0){
+  positions=[[i,j],[i-(wi-o.wi),j]];
+ }else if(axis==='d'&&delta>0){
+  positions=[[i,j],[i,j-1]];
+ }else positions=[[i,j]];
  for(const [ni,nj] of positions){
-   if(!valid(ni,nj,wi,di,k))continue;
-   if(ni!==i||nj!==j){blocks.delete(k);blocks.set(key(ni,nj),o);selected={i:ni,j:nj}}
-   o.wi=wi;o.di=di;draw();return;
+  if(!valid(ni,nj,wi,di,k))continue;
+  moveBlock(k,ni,nj,o);o.wi=wi;o.di=di;
+  if(wi>1){o.originX=undefined;o.side='left'}
+  draw();return;
  }
  draw();
 }
@@ -88,8 +108,8 @@ document.getElementById('unfold').onclick=e=>{flatView=!flatView;e.currentTarget
 document.getElementById('front').onclick=()=>setView(0,.43,1);document.getElementById('iso').onclick=()=>setView(-.55,.48,1);document.getElementById('reset').onclick=()=>setView(-.55,.48,1);
 document.getElementById('grid').onclick=e=>{grid=!grid;e.currentTarget.textContent='Raster: '+(grid?'aan':'uit');draw()};
 document.getElementById('mode').onclick=e=>{mode=mode==='select'?'rotate':'select';e.currentTarget.textContent='Modus: '+(mode==='select'?'selecteren':'draaien');e.currentTarget.classList.toggle('active',mode==='rotate')};
-for(const [id,axis,delta] of [['wminus','w',-1],['wplus','w',1],['dminus','d',-1],['dplus','d',1]])document.getElementById(id).onclick=()=>resizeSelected(axis,delta);document.getElementById('clear').onclick=()=>{blocks.clear();selected=null;gesture=null;draw()};
-canvas.addEventListener('pointerdown',e=>{if(flatView)return;canvas.setPointerCapture(e.pointerId);const r=canvas.getBoundingClientRect(),x=e.clientX-r.left,y=e.clientY-r.top;pointers.set(e.pointerId,{x,y});lastPinch=null;if(pointers.size===1){const cell=mode==='select'?pick(x,y):null;if(cell){selected=cell;const k=key(cell.i,cell.j);if(!blocks.has(k))blocks.set(k,{ht:0,wi:1,di:1})}gesture={cell,startY:y,initial:cell?(blocks.get(key(cell.i,cell.j))?.ht||0):0,moved:false}}else gesture=null;draw()});
+for(const [id,axis,delta] of [['wminus','w',-1],['wplus','w',1],['dminus','d',-1],['dplus','d',1]])document.getElementById(id).onclick=()=>resizeSelected(axis,delta);document.getElementById('side').onclick=toggleSide;document.getElementById('clear').onclick=()=>{blocks.clear();selected=null;gesture=null;draw()};
+canvas.addEventListener('pointerdown',e=>{if(flatView)return;canvas.setPointerCapture(e.pointerId);const r=canvas.getBoundingClientRect(),x=e.clientX-r.left,y=e.clientY-r.top;pointers.set(e.pointerId,{x,y});lastPinch=null;if(pointers.size===1){const cell=mode==='select'?pick(x,y):null;if(cell){selected=cell;const k=key(cell.i,cell.j);if(!blocks.has(k))blocks.set(k,{ht:0,wi:1,di:1,originX:cell.i,side:'left'})}gesture={cell,startY:y,initial:cell?(blocks.get(key(cell.i,cell.j))?.ht||0):0,moved:false}}else gesture=null;draw()});
 canvas.addEventListener('pointermove',e=>{if(flatView)return;if(!pointers.has(e.pointerId))return;const r=canvas.getBoundingClientRect(),x=e.clientX-r.left,y=e.clientY-r.top,old=pointers.get(e.pointerId);pointers.set(e.pointerId,{x,y});if(pointers.size===1){if(gesture?.cell){const {i,j}=gesture.cell;const height=Math.max(0,Math.min(130,Math.round((gesture.initial+(gesture.startY-y)*.6)/step)*step));if(Math.abs(y-gesture.startY)>4)gesture.moved=true;blocks.get(key(i,j)).ht=height}else{az+=(x-old.x)*.008;el=Math.max(-.15,Math.min(1.4,el+(y-old.y)*.006))}}else if(pointers.size===2){const [a,b]=[...pointers.values()];const dist=Math.hypot(a.x-b.x,a.y-b.y);if(lastPinch)zoom=Math.max(.4,Math.min(3.5,zoom*dist/lastPinch));lastPinch=dist}draw()});
 function end(e){if(flatView)return;pointers.delete(e.pointerId);lastPinch=null;if(pointers.size===0){gesture=null;draw()}}canvas.addEventListener('pointerup',end);canvas.addEventListener('pointercancel',end);
 canvas.addEventListener('wheel',e=>{e.preventDefault();zoom=Math.max(.4,Math.min(3.5,zoom*Math.exp(-e.deltaY*.001)));draw()},{passive:false});window.addEventListener('resize',resize);resize()})();
